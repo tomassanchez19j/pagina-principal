@@ -1,0 +1,95 @@
+body{
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color:#abdbd8;
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+
+   }
+
+
+
+.glass-container{  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+backdrop-filter: blur(10px);
+border-radius: 80px;
+border:1px solid rgba(255, 255, 255, 0.18);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+place-items: center;
+height: 600px;
+width: 1300px;
+margin-top: 100px;
+margin-bottom: 150px;
+background-color: white;
+margin:50px auto 150px auto;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 60px;
+}
+
+
+.automediano{
+    border-radius: 15px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); 
+       width: 100%;
+     height: auto;
+     object-fit: cover;
+     border-radius: 10px;
+
+}
+.autolujoso{
+    border-radius: 15px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      width: 100%;
+     height: auto;
+     object-fit: cover;
+     border-radius: 10px;
+  
+}
+.autoeconomico{
+    border-radius: 15px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+       width: 100%;
+     height: auto;
+     object-fit: cover;
+     border-radius: 10px;
+
+}
+.mini-container{
+    background-color: #abdbd8;
+    padding: 20px;
+    border-radius: 15px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 20px 32px 0 rgba(0, 0, 0, 0.37);
+    text-align: center;
+    width: 300px;
+    transition: 0.3s;
+    
+}
+.mini-container:hover{
+    transform: scale(1.2);
+    transition: 0.5s;
+}
+.titulo{
+    text-align: center;
+    font-size: 50px;
+}
+.boton{
+background-color: white;
+border-radius: 30px;
+color: black;
+padding: 10px;
+transition: 0.3s;
+border:none;
+}
+.boton:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+    box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.37);
+}

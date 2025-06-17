@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #abdbd8;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+     font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.contenedor{
+   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+backdrop-filter: blur(10px);
+border-radius: 80px;
+border:1px solid rgba(255, 255, 255, 0.18);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+height: 600px;
+width: 1300px;
+margin-top: 100px;
+margin-bottom: 150px;
+background-color: white;
+margin:50px auto 150px auto;
+text-align: center;
+padding-top: 100px;
+padding-bottom: 50px;
+
+}
+.contenedor h1{
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.contenedor .input-box{
+    width: 100%;
+    height: 50px;
+    margin: 30px 0 ;
+   
+    
+}
+.input-box input{
+    width: 50%;
+    border: ghostwhite;
+    height: 50%;
+    background: transparent;
+    outline: none;
+    border-radius: 40px;
+    padding: 20px 45px 20px 20px;
+     box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.37);
+
+}
+.input-box input::placeholder{
+    color: silver;
+}
+.input-box i{
+    position: relative;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-55);
+    font-size: 20px;
+}
+.contenedor .btn{
+    width: 25%;
+    height: 50px;
+    background-color: black;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    color: white;
+    transition: 0.3s;
+}
+.contenedor .btn:hover{
+    transform: scale(1.1);
+    transition: 0.5s;  
+    }
+.contenedor .registro-link{
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+.registro-link p a{
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+}
+.registro-link p a:hover{
+    text-decoration: underline;
+    }

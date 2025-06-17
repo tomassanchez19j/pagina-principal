@@ -1,0 +1,95 @@
+
+:root{
+  --color-acento: black;
+  --color-acento-claro: white;
+  --color-texto: black;
+
+}
+
+body{
+  margin: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #abdbd8;
+}
+
+h3, p{
+  margin: 30px;
+}
+
+.escondido{
+  display: none;
+}
+
+a{
+  margin-right: 30px;
+  border:unset;
+  cursor:pointer;
+  text-decoration: none;
+  transition: 200ms;
+  color: white;
+}
+
+button{
+  transition: 200ms;
+}
+
+a:hover:not(#carrito), button:hover{
+  color: var(--color-acento);
+}
+
+/* Header */
+header{
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.09);
+  margin-bottom: 10px;
+  font-size: larger;
+}
+
+header nav{
+  display: flex;
+  justify-content: space-between;
+  margin:  60px;
+}
+
+#logo{
+  height: 40px;
+  margin: 20px;
+}
+
+header nav div{
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+header nav img{
+  height: 50px;
+
+}
+
+#cuenta-carrito{
+  position: absolute;
+  background-color: var(--color-acento);
+  border-radius: 100%;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  aspect-ratio: 1;
+  text-align: center;
+margin-left: 10px;
+
+  /* margin-bottom: 15px; */
+}
+
+footer{
+  text-align: center;
+  box-shadow: -1px -3px 5px rgba(0, 0, 0, 0.09);
+  padding-top: 2px;
+  margin-top: auto;
+}
+
+footer a{
+  text-decoration: underline;
+}
