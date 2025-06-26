@@ -1,236 +1,233 @@
-.barra-busqueda{
-position: absolute;
-padding: 5px;
-justify-content: left;
-align-items: left;
-display: flex;
-margin-right: 1040px;
+html, body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.barra-busqueda {
+    display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex: 1;
+  max-width:600px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+
+.barra-busqueda input {
+  width: 100%;
+  height: 40px;
+  font-size: 16px;
+  color: black;
+  outline: none;
+  border: 1px solid rgba(126, 56, 238, 0.897);
+  border-radius: 30px;
+  padding: 0 15px;
+   box-shadow: 0 8px 32px 0 rgba(118, 97, 202, 0.555);
 
 }
-.barra-busqueda input{
-    width: 0px;
-    height: 40px;
-    padding: 0 20px;
-    font-size: 18px;
-    color: black;
-    outline: none;
-    border:none;
-    border-radius: 30px;
-     transition: all 0.6s ease;
 
-  
-}
- .barra-busqueda input{
-    width: 240px; 
- }
       
 .btn{
-  position: absolute;
-  width: 55px;
-  height: 55px;
-  line-height: 55px;
-  top: 0;
-  right: 0;
-  background: white;
-  text-align: center;
-  color: black;
-  font-size: 20px;
-  border-radius: 50%; 
+   width: 45px;
+  height: 45px;
+  background-color: rgba(126, 56, 238, 0.897);
+  color: white;
+  font-size: 18px;
+  border-radius: 50%;
   cursor: pointer;
+  border: none;
+  box-shadow: 0 8px 32px 0 rgba(126, 56, 238, 0.897);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important; 
+  margin: 0 !important;
+  line-height: 1 !important;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
 
- box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-
-   }
 body{
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color:#abdbd8;
-  font-family: "Raleway", sans-serif;
+    background: linear-gradient(180deg, #ffffff, #f4f1ff, #e0d9fb);
+ font-family: 'Poppins', sans-serif;
   font-optical-sizing: auto;
   font-weight: weight;
   font-style: normal;
 
    }
+  
+
 .botones{
     display: flex;
+    
      justify-content: right;
     align-items: right; 
+    
     gap: 20px;
 
 }
-.header{
-    padding: 40px 40px;
-    text-align: center;
-     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        
+
+.botones a button{
+  border: none;
+  background: transparent;
+  border-radius: 30px;
+  height: 40px;
+  width: auto;
+  transition: 0.3s ease;
+  font-family: 'Inter', sans-serif !important;
 }
-.glass-container{  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+
+.botones a button:hover{
+    box-shadow: 0 8px 32px 0 rgba(126, 56, 238, 0.897);
+   background-color:rgba(126, 56, 238, 0.897) ;
+   color: white;
+   font-size: small;
+  transform: scale(1.2);
+    transition: 0.5s;
+}
+.botones .inicioSesion{
+    box-shadow: 0 8px 32px 0 rgba(126, 56, 238, 0.897) !important;
+   background-color:rgba(126, 56, 238, 0.897) !important;
+   color: white;
+   font-size: small;
+}
+.botones .Registro{
+   box-shadow: 0 8px 32px 0 rgba(126, 56, 238, 0.897) !important;
+   background-color:rgba(126, 56, 238, 0.897) !important;
+   color: white;
+   font-size: small;
+}
+
+.header{
+  
+    text-align: center;
+    box-shadow: 0 0px 0px 0 rgba(102, 64, 255, 0.555);
+}
+
+.container-botones{
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+
+}
+
+.glass-container{  
+background: transparent;
 backdrop-filter: blur(10px);
 border-radius: 80px;
 border:1px solid rgba(255, 255, 255, 0.18);
-box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 place-items: center;
-height: 600px;
-width: 1300px;
-margin-top: 100px;
+height:auto;
+width: 95%;
+margin-top: 50px;
 margin-bottom: 150px;
-background-color: white;
-margin:50px auto 150px auto;
+margin:60px auto 150px auto;
 display: flex;
 justify-content: center;
 align-items: center;
 gap: 60px;
 }
-.inicioSesion{
-    background-color: white;
-    border: none;
-    color: black;
-    padding: 15px 15px;
-    text-align: center;
-    margin: none;
-    cursor: pointer;
-    border-radius: 30px;
-   
-     font-size: 15px;
-      transition: 0.3s;
-    
-  }
-  .Registro{
-      background-color: white;
-    border: none;
-    color: black;
-    padding: 15px 15px;
-    text-align: center;
-    margin: none;
-    cursor: pointer;
-    border-radius: 30px;
-    
-     font-size: 15px;
-      transition: 0.3s;
-    
-  }
-  .alojamientos{
-    background-color: transparent;
-    border: none;
-     margin-top: 10px;
- font-size: 15px;
- transition: 0.3s;
-  }
-  .vuelos{
-    background-color: transparent;
-    border: none;
-     margin-top: 10px;
- font-size: 15px;
- transition: 0.3s;
-  }
-  .paquetes{
-    background-color: transparent;
-    border: none;
-     margin-top: 10px;
- font-size: 15px;
- transition: 0.3s;
-  }
-  .auto{
-    background-color: transparent;
-      border: none;
-       margin-top: 10px;
- font-size: 15px;
- transition: 0.3s;
-  }
-.alojamientos:hover{
-  transform: scale(1.2);
-    transition: 0.5s;
+.barra-busqueda .barra{
+  background: transparent;
 }
-.vuelos:hover{
-  transform: scale(1.2);
-    transition: 0.5s;
-}
-.paquetes:hover{
-  transform: scale(1.2);
-    transition: 0.5s;
-}
-.auto:hover{
-  transform: scale(1.2);
-    transition: 0.5s;
-}
-.puntacana{
-    border-radius: 15px;
-    border:1px solid rgba(255, 255, 255, 0.18);
-     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37); 
-      width: 100%;
-     height: auto;
-     object-fit: cover;
-     border-radius: 10px;
 
-
-}
-.rio{
-    border-radius: 15px;
-    border:1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-     width: 100%;
-     height: auto;
-     object-fit: cover;
-     border-radius: 10px;
-
+.glass-container img{
   
-}
-.egipto{
-    border-radius: 15px;
+    
     border:1px solid rgba(255, 255, 255, 0.18);
-     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    box-shadow: 0 8px 32px 0 rgba(102, 64, 255, 0.555); 
       width: 100%;
      height: auto;
      object-fit: cover;
-     border-radius: 10px;
+     
 
 
 }
+
 .mini-container{
-    background-color: #abdbd8;
-    padding: 20px;
-    border-radius: 15px;
+    background-color: white;
+    padding: 10px;
+    
     border:1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 20px 32px 0 rgba(0, 0, 0, 0.37);
     text-align: center;
     width: 300px;
-    transition: 0.3s;
+    transition: 0.3s ease-in-out;
+     box-shadow: 0 8px 32px 0 rgba(118, 97, 202, 0.555);
     
 }
 .mini-container:hover{
-    transform: scale(1.2);
+     background-color:rgba(126, 56, 238, 0.897) ;
+     box-shadow: 0 8px 32px 0 rgba(126, 56, 238, 0.897) ;
+     color: white;
+    transform: scale(1.05);
     transition: 0.5s;
 }
 .titulo{
+   margin-top: 30px;
+   margin-bottom: 0;
     text-align: center;
-    font-size: 50px;
+    font-size: xx-large;
+     color:rgba(126, 56, 238, 0.897) ;
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 2px 1px 2px rgba(126, 56, 238, 0.897) ;
+} 
+.logo-redes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  height: 170px;
+  flex-wrap: wrap;
+  margin: 0 10px 0 10px;
 }
-.carrito{
-   transition: 0.3s;
-  font-size: 15px;
-    border: none;
-    background-color: white;
-    color: black;
-    padding: 15px 15px;
-    text-align: center;
-    margin: none;
-    cursor: pointer;
-    border-radius: 30px 
-     
+
+
+.logo-img {
+  width: 300px;
+  height: auto;
 }
-.Registro:hover{
-     transform: scale(1.2);
-    transition: 0.5s;
-    box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.37);
+
+.social-bar {
+  display: flex;
+  gap: 15px;
 }
-.inicioSesion:hover{
-     transform: scale(1.2);
-    transition: 0.5s;
-    box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.37);
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  background:transparent;
+  border-radius: 50%;
+  display: flex;
+  border: 1px gray;
+  align-items: center;
+  justify-content: center;
+  color: white; 
+  font-size: 18px;
+ background-color:rgba(126, 56, 238, 0.897) ;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-left: 10px;
+  text-decoration: none;
 }
-.carrito:hover{
-     transform: scale(1.2);
-    transition: 0.5s;
-    box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.37);
+
+.social-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(126, 56, 238, 0.897);
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.glass-container {
+  animation: fadeInUp 1s ease-in-out;
 }
