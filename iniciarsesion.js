@@ -19,18 +19,18 @@ const password = document.getElementById("contraseña").value
             const data = await response.json()
             const token = data.access_token
 
-            // Guardar token en localStorage para futuras solicitudes
+            
             localStorage.setItem("token", token)
 
-            // Redirigir o mostrar mensaje
-            document.getElementById("mensaje").textContent = "Inicio de sesión exitoso ✅"
+       
+            document.getElementById("mensaje").textContent = "Inicio de sesión exitoso "
             
 
-            // Redirigir a página protegida si querés
-            // window.location.href = "dashboard.html"
+            
+             window.location.href = "index.html"
 
         } else {
-            document.getElementById("mensaje").textContent = "Credenciales incorrectas ❌"
+            document.getElementById("mensaje").textContent = "Credenciales incorrectas "
             console.log(params)
         }
     } catch (error) {
