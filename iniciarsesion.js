@@ -24,14 +24,14 @@ const password = document.getElementById("contraseña").value
 
             // Redirigir o mostrar mensaje
             document.getElementById("mensaje").textContent = "Inicio de sesión exitoso ✅"
-            console.log(params)
+            
 
             // Redirigir a página protegida si querés
             // window.location.href = "dashboard.html"
 
         } else {
             document.getElementById("mensaje").textContent = "Credenciales incorrectas ❌"
-            console.log(email,contra1)
+            console.log(params)
         }
     } catch (error) {
         console.error("Error:", error)
