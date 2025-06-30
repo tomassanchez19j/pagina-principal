@@ -125,17 +125,21 @@ elemento.addEventListener("click", (e) => {
 
 
 // Muestra el formulario de compra y guarda los datos del vuelo en dataset
-compra.addEventListener("click", (e) => {
+elemento.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn_comprar")) {
     const card = e.target.closest(".card-vuelo")
     if (card) {
       const vuelo_precio = card.querySelector(".vuelo-bottom h4").textContent.replace("$", "")
-      formulario_compra_simple.dataset.idVuelo = card.id
-      formulario_compra_simple.dataset.precioVuelo = vuelo_precio
+      
+      // 🔁 ASIGNAMOS DATOS EN EL FORMULARIO PARA USAR MÁS TARDE
+      formulario_compra_simple.setAttribute("data-id-vuelo", card.id)
+      formulario_compra_simple.setAttribute("data-precio-vuelo", vuelo_precio)
+      
       compra.style.display = "flex"
     }
   }
 })
+
 
 // Cierra el formulario si se hace clic fuera del contenido
 compra.addEventListener("click", (e) => {
@@ -156,6 +160,7 @@ function parseJwt(token) {
 
 // Enviar datos de la compra al hacer clic en "Finalizar compra"
 compra_simple.addEventListener("click", (e) => {
+  compra_simple.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn-compra-final-simple")) {
     const datos_formulario = new FormData(formulario_compra_simple)
     const nombre = datos_formulario.get("nombre")
@@ -172,12 +177,22 @@ compra_simple.addEventListener("click", (e) => {
     const usuario = parseJwt(token)
     const hoy = new Date()
 
+    // ✅ Recuperamos correctamente los datos guardados en dataset
+    const idVuelo = formulario_compra_simple.getAttribute("data-id-vuelo")
+    const precioVuelo = formulario_compra_simple.getAttribute("data-precio-vuelo")
+
+    // Validamos por si algo falla
+    if (!idVuelo || !precioVuelo) {
+      alert("No se pudieron recuperar los datos del vuelo. Reintentá la compra.")
+      return
+    }
+
     const datos_ventas_vuelo = {
-      id_vuelo: formulario_compra_simple.dataset.idVuelo,
+      id_vuelo: idVuelo,
       id_comprador: usuario.id,
       fecha_compra: hoy.toLocaleDateString("es-AR"),
       hora_compra: hoy.toLocaleTimeString("es-AR"),
-      monto_total: formulario_compra_simple.dataset.precioVuelo
+      monto_total: precioVuelo
     }
 
     console.log(datos_ventas_vuelo)
@@ -194,4 +209,6 @@ compra_simple.addEventListener("click", (e) => {
       })
       .catch(err => console.error("Error al agregar venta de vuelo:", err))
   }
+  })
 })
+
