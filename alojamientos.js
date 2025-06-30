@@ -31,7 +31,7 @@ fetch(url)
             <p>hla mundo</p>
           </div>
           <div class="vuelo-bottom">
-            <h4>$${vuelo.precio}</h4>
+            <h4>$${vuelo.precio_dia}</h4>
           </div>
           <section class="vuelo-botones">
             <a href="#" class="btn_comprar">comprar</a>
