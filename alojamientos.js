@@ -19,7 +19,7 @@ fetch(url)
     data.forEach(vuelo => {
       const card = document.createElement("div")
       card.classList.add("card-vuelo", "extra")
-      card.id = vuelo.id_vuelos
+      card.id = vuelo.id_alquileres
       card.innerHTML = `
         
           <div class="vuelo-top" ">
