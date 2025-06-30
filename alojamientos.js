@@ -7,33 +7,26 @@ const supabase = createClient(supabaseUrl, supabaseKey)
 const btn_comprar = document.querySelector(".btn_comprar")
 const elemento = document.querySelector(".container")
 const vermas = document.querySelector(".btn-ver-mas")
-const url = "https://api-viajes-77bq.vercel.app/api/vuelos/leer"
-
+let url = "https://api-viajes-77bq.vercel.app/api/alquileres/leer"
 
 
 fetch(url)
   .then(res => res.json())
   .then(data => {
-    data.forEach(vuelo => {
+    data.forEach(alquiler => {
       const card = document.createElement("div")
       card.classList.add("card-vuelo", "extra")
-      card.id = vuelo.id_vuelos
+      card.id = alquiler.id_alquileres
       card.innerHTML = `
         
           <div class="vuelo-top" ">
             <img src="img/logo.png" alt="Logo Aerolínea">
-            <span>jet & go</span>
           </div>
           <div class="vuelo-body">
-            <p>PARTIDA</p>
-            <p>${vuelo.partida} → ${vuelo.destino}</p>
-            <p>${vuelo.fecha_de_salida} · ${vuelo.hora_de_salida}</p>
-            <p>LLEGADA</p>
-            <p>${vuelo.partida} → ${vuelo.destino}</p>
-            <p>${vuelo.fecha_de_salida} · ${vuelo.hora_de_salida}</p>
+            <p>Tipo de alquiler: ${alquiler.tipo_alquiler}</p>
           </div>
           <div class="vuelo-bottom">
-            <h4>$${vuelo.precio}</h4>
+            <h4>$${alquiler.precio_dia}</h4>
           </div>
           <section class="vuelo-botones">
             <a href="#" class="btn_comprar">comprar</a>
@@ -138,9 +131,9 @@ elemento.addEventListener("click", (e) => {
     const card = e.target.closest(".card-vuelo")
 // SI CARTA EXISTE ME VA A RECPERAR EL ID DEL VUELO Q SE VA A COMPRAR TAMBIEN RECUPERO EL PRECIO DEL VUELO
     if (card) {
-      id_vuelo2 = card.id
+      id_vuelo2 = Number(card.id)
       const vuelo_precio = card.querySelector(".vuelo-bottom h4")
-      monto_total2 = vuelo_precio.textContent.replace("$", "")
+      monto_total2 = Number(vuelo_precio.textContent.replace("$", ""))
     }
   }
 })
@@ -161,12 +154,15 @@ compra_simple.addEventListener("click", (e) => {
     email = datos_formulario.get("email")
     contraseña = datos_formulario.get("contraseña")
     
-    
+    console.log("Contraseña ingresada:", contraseña)
 
 //LE PASO LOS DATOS COMO PARAMETROS A MI FUNCION
-    
+   
   }
 })
+
+// FUNCION PARA TRAER LA TABLA USUARIOS DE SUPABASE POR CONTRASEÑA Y EMAIL VALIDADONDO SI EXISTE O NO MI USUARIO
+
 function parseJwt(token) {
     const base64Url = token.split('.')[1]
     const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
@@ -175,27 +171,24 @@ function parseJwt(token) {
     }).join(''))
     return JSON.parse(jsonPayload)
 }
-
-// FUNCION PARA TRAER LA TABLA USUARIOS DE SUPABASE POR CONTRASEÑA Y EMAIL VALIDADONDO SI EXISTE O NO MI USUARIO
 const token = localStorage.getItem("token")
-if (!token) {
-    alert("Usuario no autenticado")
-    window.location.href = "iniciarsesion.html"
-}
-
-const usuario = parseJwt(token)
-const datos_ventas_vuelo = {
-        id_vuelo: id_vuelo2,
+  if(!token){
+    alert("usuario no registrado")
+    window.location.href="iniciarsesion.html"
+  }
+ const usuario = parseJwt(token)
+        const datos_ventas_alquileres = {
+        id_alquileres: id_vuelo2,
         id_comprador: usuario.id,
         fecha_compra: hoy.toLocaleDateString("es-AR"),
         hora_compra: hoy.toLocaleTimeString("es-AR"),
         monto_total: monto_total2
     } 
-        console.log(datos_ventas_vuelo)
-        fetch('https://api-viajes-77bq.vercel.app/api/ventas_de_vuelos', {
+        console.log(datos_ventas_alquileres)
+        fetch('https://api-viajes-77bq.vercel.app/api/ventas_alquileres', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(datos_ventas_vuelo)
+        body: JSON.stringify(datos_ventas_alquileres)
     })
     .then(res => {
         if (!res.ok) throw new Error("Error al agregar venta de vuelo")

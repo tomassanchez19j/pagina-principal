@@ -18,17 +18,18 @@
 	<header class="barra_de_navegacion">
 		
 		<nav class="navbar navbar-expand-lg">
-			<div class="logo-redes">
-					<img src="img/logo.png" alt="Logo" class="logo-img">
-				</div>
+			
 			<div class="container-fluid">
 				
-				<a class="navbar-brand" href="#">Vuelos</a>
+				<div class="logo-redes">
+							<img src="img/ChatGPT Image 29 jun 2025, 07_26_21.png" alt="Logo" class="logo-img">
+						</div>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					
 					<li class="nav-item">
 					<a class="nav-link active" aria-current="page" href="alojamientos.html">Reservas</a>
 					</li>
@@ -48,7 +49,12 @@
 					<button class="btn">
 						<i class="fa-solid fa-magnifying-glass"></i>
 					</button>
+					<button class="btn" id="carrito">
+						<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+					</button>
+					
 				</div>
+				
 			</div>
 		</nav>
 	</header>
@@ -57,8 +63,35 @@
 	<main>
 		<div class="compra_flotante" >
   			<div class="compra_contenido">
+				<h2>Pago con Tarjeta</h2>
+				<form class="formulario-compra-simple">
+					<label>Nombre completo</label>
+					<input type="text" placeholder="Tu nombre" name="nombre" required/>
+
+					<label>Correo electrónico</label>
+					<input type="email" placeholder="ejemplo@correo.com" name="email" required />
+
+					<label>Contraseña</label>
+					<input type="password"  placeholder="Contraseña" name="contraseña" id="" required/>
+					
+				</form>
+				<button class="btn-compra-final-simple" type="submit">Pagar ahora</button>
+				
 			</div>
+
+
 		</div>
+		<div class="carrito-flotante" >
+  			<div class="carrito-contenido">
+
+			</div>
+			<div class="carrito-total">
+				<span>Precio Total: <span id="total-carrito">$0</span></span>
+				<button class="btn_comprar">Comprar</button>
+			</div>
+			
+		</div>
+
 		
 		<section class="carrusel-section">
 			<div class="info">
@@ -101,9 +134,7 @@
 		
 		</div>
 	</div>
-	<div class="ver-mas">
-		<button class="btn-ver-mas">ver mas</button>
-	</div>
-	<script src="vuelos.js"></script>
+	
+	<script src="vuelos.js" type="module"></script>
 </body>
 </html>

@@ -10,6 +10,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 	<title>Carrito</title>
 </head>
 <body>
@@ -18,19 +19,17 @@
 		
 		<nav class="navbar navbar-expand-lg">
 			<div class="logo-redes">
-					<img src="img/logo.png" alt="Logo" class="logo-img">
+					<img src="img/ChatGPT Image 29 jun 2025, 17_23_02.png" alt="Logo" class="logo-img">
 				</div>
 			<div class="container-fluid">
 				
-				<a class="navbar-brand" href="#">Vuelos</a>
+				<a class="navbar-brand" href="vuelos.html">Vuelos</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item">
-					<a class="nav-link active"  id="reserva" aria-current="page" href="alojamientos.html">Reservas</a>
-					</li>
+					
 					<li class="nav-item">
 						
 						<a class="nav-link" href="#">Casas</a>
@@ -39,6 +38,7 @@
 						<a class="nav-link" href="#" role="button"  aria-expanded="false">Autos</a>
 					</li>
 					
+					
 				</ul>
 				
 				 <div class="barra-busqueda">
@@ -46,7 +46,12 @@
 					<button class="btn">
 						<i class="fa-solid fa-magnifying-glass"></i>
 					</button>
+					<button class="btn" id="carrito">
+						<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+					</button>
+					
 				</div>
+				
 			</div>
 		</nav>
 	</header>
@@ -55,8 +60,35 @@
 	<main>
 		<div class="compra_flotante" >
   			<div class="compra_contenido">
+				<h2>Pago con Tarjeta</h2>
+				<form class="formulario-compra-simple">
+					<label>Nombre completo</label>
+					<input type="text" placeholder="Tu nombre" name="nombre" required/>
+
+					<label>Correo electrónico</label>
+					<input type="email" placeholder="ejemplo@correo.com" name="email" required />
+
+					<label>Contraseña</label>
+					<input type="password"  placeholder="Contraseña" name="contraseña" id="" required/>
+					
+				</form>
+				<button class="btn-compra-final-simple" type="submit">Pagar ahora</button>
+				
 			</div>
+
+
 		</div>
+		<div class="carrito-flotante" >
+  			<div class="carrito-contenido">
+
+			</div>
+			<div class="carrito-total">
+				<span>Precio Total: <span id="total-carrito">$0</span></span>
+				<button class="btn_comprar">Comprar</button>
+			</div>
+			
+		</div>
+
 		
 		<section class="carrusel-section">
 			<div class="info">
@@ -99,9 +131,7 @@
 		
 		</div>
 	</div>
-	<div class="ver-mas">
-		<button class="btn-ver-mas">ver mas</button>
-	</div>
-	<script src="vuelos.js"></script>
+
+	<script src="alojamientos.js" type="module"></script>
 </body>
 </html>
