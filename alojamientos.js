@@ -20,6 +20,7 @@ fetch(url)
       const card = document.createElement("div")
       card.classList.add("card-vuelo", "extra")
       card.id = vuelo.id_alquileres
+      console.log(vuelo.precio_dia)
       card.innerHTML = `
         
           <div class="vuelo-top" ">
