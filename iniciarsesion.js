@@ -3,8 +3,9 @@ document.querySelector(".btn").addEventListener("click", async () => {
     const password = document.getElementById("contraseña").value
 
     const params = new URLSearchParams()
-    params.append("username", email)
-    params.append("password", password)
+    const email1 = params.append("username", email)
+    const contra1 = params.append("password", password)
+    console.log(email,contra1)
   
     try {
         const response = await fetch("https://api-viajes-77bq.vercel.app/api/login", {
@@ -32,7 +33,7 @@ document.querySelector(".btn").addEventListener("click", async () => {
 
         } else {
             document.getElementById("mensaje").textContent = "Credenciales incorrectas ❌"
-            console.log(params)
+            console.log(email,contra1)
         }
     } catch (error) {
         console.error("Error:", error)
