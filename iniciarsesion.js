@@ -2,6 +2,7 @@ document.querySelector(".btn").addEventListener("click", async () => {
 const email = document.getElementById("email").value
 const password = document.getElementById("contraseña").value
 
+
     const params = new URLSearchParams()
     params.append("username", email)
     params.append("password", password)
