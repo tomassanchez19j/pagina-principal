@@ -3,7 +3,7 @@ const compra = document.querySelector(".compra_flotante")
 const compra_simple = document.querySelector(".compra_contenido")
 
 // Muestra el formulario de compra y guarda los datos del vuelo en dataset
-elemento.addEventListener("click", (e) => {
+compra.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn_comprar")) {
     const card = e.target.closest(".card-vuelo")
     if (card) {
