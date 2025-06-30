@@ -155,8 +155,8 @@ function parseJwt(token) {
 }
 
 // Enviar datos de la compra al hacer clic en "Finalizar compra"
+
 compra_simple.addEventListener("click", (e) => {
-  compra_simple.addEventListener("click", (e) => {
   if (e.target.classList.contains("btn-compra-final-simple")) {
     const datos_formulario = new FormData(formulario_compra_simple)
     const nombre = datos_formulario.get("nombre")
@@ -192,7 +192,7 @@ compra_simple.addEventListener("click", (e) => {
 
     console.log(datos_ventas_vuelo)
 
-    fetch('https://api-viajes-77bq.vercel.app/api/ventas_de_vuelos', {
+    fetch('https://api-viajes-77bq.vercel.app/api/ventas_alquileres', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(datos_ventas_vuelo)
@@ -205,5 +205,5 @@ compra_simple.addEventListener("click", (e) => {
       .catch(err => console.error("Error al agregar venta de vuelo:", err))
   }
   })
-})
+
 
