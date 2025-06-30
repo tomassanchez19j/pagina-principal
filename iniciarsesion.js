@@ -1,5 +1,5 @@
 document.querySelector(".btn").addEventListener("click", async () => {
-    const email = document.getElementById("nombre").value
+    const email = document.getElementById("email").value
     const password = document.getElementById("contraseña").value
 
     const params = new URLSearchParams()
@@ -9,10 +9,11 @@ document.querySelector(".btn").addEventListener("click", async () => {
     try {
         const response = await fetch("https://api-viajes-77bq.vercel.app/api/login", {
             method: "POST",
+            body: params,
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: params
+            }
+            
         })
 
         if (response.ok) {
