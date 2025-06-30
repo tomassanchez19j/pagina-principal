@@ -6,27 +6,32 @@ const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient(supabaseUrl, supabaseKey)
 const btn_comprar = document.querySelector(".btn_comprar")
 const elemento = document.querySelector(".container")
-const vermas = document.querySelector(".btn-ver-mas")
-let url = "https://api-viajes-77bq.vercel.app/api/alquileres/leer"
+const url = "https://api-viajes-77bq.vercel.app/api/vuelos/leer"
+const formulario_compra_simple = document.querySelector(".formulario-compra-simple")
+const compra = document.querySelector(".compra_flotante")
+const compra_simple = document.querySelector(".compra_contenido")
+
 
 
 fetch(url)
   .then(res => res.json())
   .then(data => {
-    data.forEach(alquiler => {
+    data.forEach(vuelo => {
       const card = document.createElement("div")
       card.classList.add("card-vuelo", "extra")
-      card.id = alquiler.id_alquileres
+      card.id = vuelo.id_vuelos
       card.innerHTML = `
         
           <div class="vuelo-top" ">
             <img src="img/logo.png" alt="Logo Aerolínea">
+            <span>jet & go</span>
           </div>
           <div class="vuelo-body">
-            <p>Tipo de alquiler: ${alquiler.tipo_alquiler}</p>
+            <p>PARTIDA</p>
+            <p>hla mundo</p>
           </div>
           <div class="vuelo-bottom">
-            <h4>$${alquiler.precio_dia}</h4>
+            <h4>$${vuelo.precio}</h4>
           </div>
           <section class="vuelo-botones">
             <a href="#" class="btn_comprar">comprar</a>
@@ -44,7 +49,6 @@ fetch(url)
 
 
 
-const compra = document.querySelector(".compra_flotante")
  elemento.addEventListener("click", (e) => {
   if(e.target.classList.contains("btn_comprar")){
     compra.style.display = "flex"
@@ -114,87 +118,92 @@ elemento.addEventListener("click", (e) => {
 
 
 
-//ACA SE CREAN LAS FUNCIONES PARA AGREGAR Y RECUPERAR DATOS A LA TABLA VENTA VUELOS
-let id_vuelo2 = 0
-let monto_total2 = ""
-let nombre = ""
-let email = ""
-let contraseña = ""
 
 
-
-//FUNCION PARA TRAER LA ID DEL PRODUCTO QUE SE QUIERE COMPRAR
-const formulario_compra_simple = document.querySelector(".formulario-compra-simple")
+// Muestra el formulario de compra y guarda los datos del vuelo en dataset
 elemento.addEventListener("click", (e) => {
-// SI EL ELEMENTO EN Q SE HIZO CLICK TIENEN LA CLASE BTN_COMPRAR ME VA A RECUPERAR CARD-VUELO 
   if (e.target.classList.contains("btn_comprar")) {
     const card = e.target.closest(".card-vuelo")
-// SI CARTA EXISTE ME VA A RECPERAR EL ID DEL VUELO Q SE VA A COMPRAR TAMBIEN RECUPERO EL PRECIO DEL VUELO
     if (card) {
-      id_vuelo2 = Number(card.id)
-      const vuelo_precio = card.querySelector(".vuelo-bottom h4")
-      monto_total2 = Number(vuelo_precio.textContent.replace("$", ""))
+      const vuelo_precio = card.querySelector(".vuelo-bottom h4").textContent.replace("$", "")
+      
+      // 🔁 ASIGNAMOS DATOS EN EL FORMULARIO PARA USAR MÁS TARDE
+      formulario_compra_simple.setAttribute("data-id-vuelo", card.id)
+      formulario_compra_simple.setAttribute("data-precio-vuelo", vuelo_precio)
+      
+      compra.style.display = "flex"
     }
   }
 })
 
 
-//RECUPERO EL BTN Y EL CONTENEDOR Y LOS USO EN MI FUNCION DE VALIDAR SI TIENE UNA CUENTA CREADA
-const btn_compra_final_simple = document.querySelector(".btn-compra-final-simple")
-const compra_simple = document.querySelector(".compra_contenido")
-
-
-const hoy = new Date()
-compra_simple.addEventListener("click", (e) => {
-  if (e.target.classList.contains("btn-compra-final-simple")) {
-    
-//RECUPERO LOS DATOS NOMBRE, EMAIL, CONTRASEÑADE MI FORMULARIO
-    const datos_formulario = new FormData(formulario_compra_simple)
-    nombre = datos_formulario.get("nombre")
-    email = datos_formulario.get("email")
-    contraseña = datos_formulario.get("contraseña")
-    
-    console.log("Contraseña ingresada:", contraseña)
-
-//LE PASO LOS DATOS COMO PARAMETROS A MI FUNCION
-   
+// Cierra el formulario si se hace clic fuera del contenido
+compra.addEventListener("click", (e) => {
+  if (!e.target.closest(".compra_contenido")) {
+    compra.style.display = "none"
   }
 })
 
-// FUNCION PARA TRAER LA TABLA USUARIOS DE SUPABASE POR CONTRASEÑA Y EMAIL VALIDADONDO SI EXISTE O NO MI USUARIO
-
+// Función para parsear el JWT y obtener el ID del usuario
 function parseJwt(token) {
-    const base64Url = token.split('.')[1]
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
-    const jsonPayload = decodeURIComponent(atob(base64).split('').map(c => {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
-    }).join(''))
-    return JSON.parse(jsonPayload)
+  const base64Url = token.split('.')[1]
+  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
+  const jsonPayload = decodeURIComponent(atob(base64).split('').map(c => {
+    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)
+  }).join(''))
+  return JSON.parse(jsonPayload)
 }
-const token = localStorage.getItem("token")
-  if(!token){
-    alert("usuario no registrado")
-    window.location.href="iniciarsesion.html"
-  }
- const usuario = parseJwt(token)
-        const datos_ventas_alquileres = {
-        id_alquileres: id_vuelo2,
-        id_comprador: usuario.id,
-        fecha_compra: hoy.toLocaleDateString("es-AR"),
-        hora_compra: hoy.toLocaleTimeString("es-AR"),
-        monto_total: monto_total2
-    } 
-        console.log(datos_ventas_alquileres)
-        fetch('https://api-viajes-77bq.vercel.app/api/ventas_alquileres', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(datos_ventas_alquileres)
+
+// Enviar datos de la compra al hacer clic en "Finalizar compra"
+compra_simple.addEventListener("click", (e) => {
+  compra_simple.addEventListener("click", (e) => {
+  if (e.target.classList.contains("btn-compra-final-simple")) {
+    const datos_formulario = new FormData(formulario_compra_simple)
+    const nombre = datos_formulario.get("nombre")
+    const email = datos_formulario.get("email")
+    const contraseña = datos_formulario.get("contraseña")
+
+    const token = localStorage.getItem("token")
+    if (!token) {
+      alert("Usuario no autenticado")
+      window.location.href = "iniciarsesion.html"
+      return
+    }
+
+    const usuario = parseJwt(token)
+    const hoy = new Date()
+
+  
+    const idVuelo = formulario_compra_simple.getAttribute("data-id-vuelo")
+    const precioVuelo = formulario_compra_simple.getAttribute("data-precio-vuelo")
+
+  
+    if (!idVuelo || !precioVuelo) {
+      alert("No se pudieron recuperar los datos del vuelo. Reintentá la compra.")
+      return
+    }
+    const datos_ventas_vuelo = {
+      id_alquileres: idVuelo,
+      id_comprador: usuario.id,
+      fecha_compra: hoy.toLocaleDateString("es-AR"),
+      hora_compra: hoy.toLocaleTimeString("es-AR"),
+      monto_total: precioVuelo
+    }
+
+    console.log(datos_ventas_vuelo)
+
+    fetch('https://api-viajes-77bq.vercel.app/api/ventas_de_vuelos', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(datos_ventas_vuelo)
     })
-    .then(res => {
+      .then(res => {
         if (!res.ok) throw new Error("Error al agregar venta de vuelo")
-        alert("Venta de vuelo agregado exitosamente")
-    })
-    .catch(err => console.error("Error al agregar venta de vuelo:", err))
+        alert("Venta de vuelo agregada exitosamente")
+        compra.style.display = "none"
+      })
+      .catch(err => console.error("Error al agregar venta de vuelo:", err))
+  }
+  })
+})
 
-
-//
