@@ -5,7 +5,7 @@ document.querySelector(".btn").addEventListener("click", async () => {
     const params = new URLSearchParams()
     params.append("username", email)
     params.append("password", password)
-
+  
     try {
         const response = await fetch("https://api-viajes-77bq.vercel.app/api/login", {
             method: "POST",
@@ -25,12 +25,14 @@ document.querySelector(".btn").addEventListener("click", async () => {
 
             // Redirigir o mostrar mensaje
             document.getElementById("mensaje").textContent = "Inicio de sesión exitoso ✅"
+            console.log(params)
 
             // Redirigir a página protegida si querés
             // window.location.href = "dashboard.html"
 
         } else {
             document.getElementById("mensaje").textContent = "Credenciales incorrectas ❌"
+            console.log(params)
         }
     } catch (error) {
         console.error("Error:", error)
