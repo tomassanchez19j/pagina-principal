@@ -5,6 +5,8 @@ const password = document.getElementById("contraseña").value
     const params = new URLSearchParams()
     params.append("username", email)
     params.append("password", password)
+
+    
     try {
         const response = await fetch("https://api-viajes-77bq.vercel.app/api/login", {
             method: "POST",
@@ -15,7 +17,7 @@ const password = document.getElementById("contraseña").value
             
         })
 
-        if (response.ok) {
+        if (response.ok ) {
             const data = await response.json()
             const token = data.access_token
 

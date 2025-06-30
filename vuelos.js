@@ -177,11 +177,11 @@ compra_simple.addEventListener("click", (e) => {
     const usuario = parseJwt(token)
     const hoy = new Date()
 
-    // ✅ Recuperamos correctamente los datos guardados en dataset
+  
     const idVuelo = formulario_compra_simple.getAttribute("data-id-vuelo")
     const precioVuelo = formulario_compra_simple.getAttribute("data-precio-vuelo")
 
-    // Validamos por si algo falla
+  
     if (!idVuelo || !precioVuelo) {
       alert("No se pudieron recuperar los datos del vuelo. Reintentá la compra.")
       return
