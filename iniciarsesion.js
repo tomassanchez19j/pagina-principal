@@ -3,8 +3,8 @@ const email = document.getElementById("email").value
 const password = document.getElementById("contraseña").value
 
     const params = new URLSearchParams()
-    params.append("username", email.value)
-    params.append("password", password.value)
+    params.append("username", email)
+    params.append("password", password)
     try {
         const response = await fetch("https://api-viajes-77bq.vercel.app/api/login", {
             method: "POST",
