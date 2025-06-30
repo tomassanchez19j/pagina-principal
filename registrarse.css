@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@400;600&display=swap');
+
+:root {
+  --morado: rgba(126, 56, 238, 0.897);
+  --sombra-morado: 0 8px 32px 0 rgba(126, 56, 238, 0.3);
+  --fuente-principal: 'Poppins', sans-serif;
+  --fuente-secundaria: 'Inter', sans-serif;
+  --gris-fondo: #f5f7fa;
+  --gris-placeholder: #999;
+  --texto-principal: #333;
+  --fondo-input: #f9f9f9;
+  --borde-input: #ddd;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,9 +19,9 @@
 }
 
 body {
-  background-color: #f2f6fc;
-  font-family: "Raleway", sans-serif;
-  color: #333;
+  background-color: var(--gris-fondo);
+  font-family: var(--fuente-principal);
+  color: var(--texto-principal);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,17 +31,18 @@ body {
 .contenedor {
   background-color: #ffffff;
   border-radius: 20px;
-  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--sombra-morado);
   width: 100%;
   max-width: 600px;
   padding: 60px 40px;
   text-align: center;
-  margin: 40px auto;
+  margin: 60px auto;
 }
 
 .contenedor h1 {
   font-size: 36px;
   margin-bottom: 30px;
+  font-family: var(--fuente-secundaria);
   color: #222;
 }
 
@@ -40,27 +55,27 @@ body {
   width: 100%;
   height: 48px;
   padding: 10px 20px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--borde-input);
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: var(--fondo-input);
   font-size: 16px;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, background-color 0.3s;
 }
 
 .input-box input:focus {
-  border-color: #3a86ff;
-  outline: none;
+  border-color: var(--morado);
   background-color: #fff;
+  outline: none;
 }
 
 .input-box input::placeholder {
-  color: #999;
+  color: var(--gris-placeholder);
 }
 
 .contenedor .btn {
   width: 100%;
   height: 50px;
-  background-color: #3a86ff;
+  background-color: var(--morado);
   color: white;
   border: none;
   border-radius: 8px;
@@ -72,6 +87,6 @@ body {
 }
 
 .contenedor .btn:hover {
-  background-color: #2f6fd4;
+  background-color: rgba(106, 41, 214, 0.9);
   transform: scale(1.02);
 }
